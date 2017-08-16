@@ -36,7 +36,7 @@ class Skill(UIResource):  # [ResourceID RxSkillProvider]
 class Upgrade(Resource):  # Abstraction, no real sections in the ini
     """ Display Upgrades Paths, and information regarding each upgrade. """
     heroname = ''  # Adept, same as HeroArchetypeName
-    upgradetier = ''  # ESUT_Upgrade1, ESUT_Upgrade1_SubUpgrade1, ESUT_Upgrade2, ESUT_Upgrade2_SubUpgrade1, ESUT_None, etc
+    upgradetier = ''  # ESUT_Upgrade[1, 2], ESUT_Upgrade1_SubUpgrade[1, 2], ESUT_Upgrade2, ESUT_Upgrade2_SubUpgrade1, ESUT_None, etc
     minherolevel = 0  # 1 or 5?
     upgradepathcategory = ''  # UPC_Offense, UPC_Defense, UPC_BurstDamage, UPC_Healing, UPC_Sustain, UPC_Mobility, UPC_AntiDebuffs
 
