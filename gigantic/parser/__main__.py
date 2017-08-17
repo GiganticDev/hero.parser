@@ -9,16 +9,22 @@ import json
 """
 This is all mostly testing at the moment, don't judge me.
 
-We expect to be run via `python -m gigantic.parser` while inside the base gigantic RxGame directory. This will currently
-search for all files in the RxGame/Config/Heroes directory and read the values into python memory then just dump the
+While inside the base gigantic RxGame directory,
+We expect to be run via `python -m gigantic.parser`
+This will currently search for all files
+in the RxGame/Config/Heroes directory
+and read the values into python memory then just dump the
 data we have to json to the cli output. Again, all testing.
 """
 
-def get_hero_config(file_name):
-	# print("Parsing hero at {0}".format(file_name))
-	config = configparser.ConfigParser(strict=False) # strict=False to allow duplicate keys within sections
 
-	# Stupid hackiness to decode utf-16le file, encode it as utf-8, then write to temporary file to fix BOM
+def get_hero_config(file_name):
+	""" This Function will start to grab the game's ini files and encode them to UTF-8 format. """
+	# print("Parsing hero at {0}".format(file_name))
+	config = configparser.ConfigParser(strict=False)
+	# strict=False to allow duplicate keys within sections
+
+	# Stupid hackiness to decode utf-16le file, encode to utf-8, then write to temp file to fix BOM
 	u = open(file_name, "rb").read().decode("utf-16le").encode("utf-8")
 	fp = tempfile.TemporaryFile()
 	fp.write(u)
@@ -35,7 +41,6 @@ def parse_hero(file_name):
 	Returns the data in a set which reprents the hero and their skills.
 	"""
 
-
 	# Section names in the gigantic files are in the format [ResourceID RxSkillProvider] where the string after
 	# space is the object type, and the string before is the ResourceID. The ResourceID is normally redundantly
 	# defined within the section as well.
@@ -48,7 +53,8 @@ def parse_hero(file_name):
 
 	for section in sections:
 		res, _, res_type = section.partition(' ')
-		if len(res_type) <= 0: # Make sure this is actually a resource section and not something like Core.System
+		# Make sure this is actually a resource section and not something like Core.System
+		if len(res_type) <= 0: 
 			continue
 
 		resource = dict(config.items(section))
@@ -66,7 +72,9 @@ def parse_hero(file_name):
 
 def parse_heroes(directory='Config/Heroes'):
 	"""
-	Loops all files found in `directory` and attempts to parse them into the "Models". Returns a list consisting of
+	Loops all files found in `directory`
+	and attempts to parse them into the "Models".
+	Returns a list consisting of
 	sets each representing a hero.
 	"""
 	hero_files = os.listdir(directory)
