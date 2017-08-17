@@ -87,11 +87,11 @@ class Archetype(UIResource):  # [HeroArchetypeName RxHeroProvider]
 
 
 class_section_map = {
-	""" Map the Gathered Information. """    
-	'RxHeroProvider': Archetype,
-	# 'RxSummonProvider': SummonProvider,
-	'RxSkillProvider': Skill,
-	'RxSkillUpgradeProvider': SkillUpgrade,
-	# 'RxPassiveUpgradeProvider': PassiveUpgrade,
-	# 'RxUpgradePathProvider': UpgradePath,
+		""" Map the Gathered Information. """    
+		'RxHeroProvider': Archetype,
+		# 'RxSummonProvider': SummonProvider,
+		'RxSkillProvider': Skill,
+		'RxSkillUpgradeProvider': SkillUpgrade,
+		# 'RxPassiveUpgradeProvider': PassiveUpgrade,
+		# 'RxUpgradePathProvider': UpgradePath,
 }
