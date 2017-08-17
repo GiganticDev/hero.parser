@@ -17,6 +17,7 @@ and read the values into python memory then just dump the
 data we have to json to the cli output. Again, all testing.
 """
 
+
 def get_hero_config(file_name):
 	""" This Function will start to grab the game's ini files and encode them to UTF-8 format. """
 	# print("Parsing hero at {0}".format(file_name))
@@ -39,7 +40,6 @@ def parse_hero(file_name):
 	Instantiate python objects in memory from the config files.
 	Returns the data in a set which reprents the hero and their skills.
 	"""
-
 
 	# Section names in the gigantic files are in the format [ResourceID RxSkillProvider] where the string after
 	# space is the object type, and the string before is the ResourceID. The ResourceID is normally redundantly

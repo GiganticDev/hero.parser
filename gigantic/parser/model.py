@@ -10,6 +10,7 @@ I'm just doing it for documentation reasons, to sort of
 This will be cleaned up once I polish this utility.
 """
 
+
 class Resource(dict):  # Abstraction, no real sections in the ini
 	"""
 	Grab Any Resource reference for each Hero.
@@ -33,9 +34,9 @@ class Skill(UIResource):  # [ResourceID RxSkillProvider]
 class Upgrade(Resource):  # Abstraction, no real sections in the ini
 	""" Grab Upgrades Paths, and information regarding each upgrade. """
 	heroname = ''  # Adept, same as HeroArchetypeName
-	upgradetier = ''  # ESUT_Upgrade[1, 2], ESUT_Upgrade1_SubUpgrade[1, 2], ESUT_Upgrade2, ESUT_Upgrade2_SubUpgrade1, ESUT_None, etc
+	upgradetier = ''  # ESUT_Upgrade[1, 2], ESUT_Upgrade1_SubUpgrade[1, 2], ESUT_None, etc
 	minherolevel = 0  # 1 or 5?
-	upgradepathcategory = ''  # UPC_Offense, UPC_Defense, UPC_BurstDamage, UPC_Healing, UPC_Sustain, UPC_Mobility, UPC_AntiDebuffs
+	upgradepathcategory = ''  # UPC_[Offense, Defense, BurstDamage, Healing, Sustain, Mobility, AntiDebuffs]  
 
 
 class SkillUpgrade(Upgrade):  # [ResourceID RxSkillUpgradeProvider]
@@ -51,7 +52,7 @@ class PassiveUpgrade(Resource):  # [ResourceID RxPassiveUpgradeProvider]
 	passiveindex = 0  # 4, 5, 6?
 
 
-class UpgradePath(Resource): # [ResourceID RxUpgradePathProvider]
+class UpgradePath(Resource):  # [ResourceID RxUpgradePathProvider]
 	""" Grab Upgrade Path Information. """
 	setname = ''  # up_Adept_Default
 	upgradetype = ''  # UPT_Skill1_U1
